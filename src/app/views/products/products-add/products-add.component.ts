@@ -12,6 +12,7 @@ export class ProductsAddComponent implements OnInit {
   formBasic: FormGroup;
   loading: boolean;
   radioGroup: FormGroup;
+  chooseFileName: '';
   photos = [
     {
       photo : './assets/images/products/speaker-1.jpg'
