@@ -1,0 +1,86 @@
+<div class="">
+    <div class="breadcrumb">
+      <h1>Products</h1>
+      <ul>
+        <li><a href="#">Products</a></li>
+        <li>list</li>
+      </ul>
+    </div>
+  
+    <div class="separator-breadcrumb border-top"></div>
+
+    <div class="row">
+      <div class="col-md-12">
+          <div class="card o-hidden">
+            <ngx-datatable
+            style="height: calc(100vh - 270px); box-shadow: none"
+            class="material fullscreen"
+            [columnMode]="'force'"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [rowHeight]="60"
+            [scrollbarV]="true"
+            [limit]="10"
+            [rows]="products_temp">
+            <!-- [rows]="products$ | async"> -->
+              <ngx-datatable-column name="thumbnail" [width]="80" [maxWidth]="100">
+                <ng-template ngx-datatable-header-template>
+                  Thumbnail
+                </ng-template>
+                  <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                      <img height="32px" width="32px" style="border-radius: 4px" [src]="value" alt="">
+                  </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="title" [maxWidth]="400">
+                <ng-template ngx-datatable-header-template>
+                  Title
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="user" [maxWidth]="130">
+                <ng-template ngx-datatable-header-template>
+                  User
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="location" [maxWidth]="130">
+                <ng-template ngx-datatable-header-template>
+                  Location
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="condition" [maxWidth]="100">
+                <ng-template ngx-datatable-header-template>
+                  Condition
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="certificate" [maxWidth]="100">
+                <ng-template ngx-datatable-header-template>
+                  Certificate
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="box" [maxWidth]="100">
+                <ng-template ngx-datatable-header-template>
+                  Box
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="price" [maxWidth]="100">
+                <ng-template ngx-datatable-header-template>
+                  Price
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="id" >
+                <ng-template ngx-datatable-header-template>
+                  Action
+                </ng-template>
+                <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                  <!-- <button type="button" class="btn btn-primary btn-sm btn-rounded m-1" (click)="editUser(value)">
+                    <i class="i-Eye"></i> &nbsp;View</button> -->
+                  <button type="button" class="btn btn-success btn-sm btn-rounded m-1"  (click)="editUser(value)">
+                    <i class="i-File-Edit"></i>&nbsp;  Edit</button>
+                  <button type="button" class="btn btn-danger btn-sm btn-rounded m-1" (click)="removeUser(value)">
+                    <i class="i-Remove-User"></i>&nbsp;Delete</button>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+      </div>
+    </div>
+</div>  

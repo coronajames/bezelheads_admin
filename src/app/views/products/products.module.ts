@@ -1,0 +1,48 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { FormsRoutingModule } from './products-routing.module';
+import { CustomFormsModule } from 'ng2-validation';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { TagInputModule } from 'ngx-chips';
+
+
+import { BasicFormComponent } from './basic-form/basic-form.component';
+import { TagInputsComponent } from './tag-inputs/tag-inputs.component';
+import { AppImgCropperComponent } from './img-cropper/img-cropper.component';
+import { ImageCropperModule } from 'ngx-img-cropper';
+import { WizardComponent } from './wizard/wizard.component';
+import { SharedComponentsModule } from 'src/app/shared/components/shared-components.module';
+import { FormWizardModule } from 'src/app/shared/components/form-wizard/form-wizard.module';
+import { TextMaskModule } from 'angular2-text-mask';
+import { InputMaskComponent } from './input-mask/input-mask.component';
+import { InputGroupsComponent } from './input-groups/input-groups.component';
+
+import { ProductsListComponent } from './products-list/products-list.component';
+import { ProductsAddComponent } from './products-add/products-add.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CustomFormsModule,
+    SharedComponentsModule,
+    NgbModule,
+    TagInputModule,
+    ImageCropperModule,
+    TextMaskModule,
+    FormWizardModule,
+    FormsRoutingModule,
+    NgxPaginationModule,
+    NgxDatatableModule
+  ],
+  declarations: [BasicFormComponent, TagInputsComponent, AppImgCropperComponent, WizardComponent, InputMaskComponent, InputGroupsComponent,
+                  ProductsListComponent, ProductsAddComponent]
+})
+export class ProductsModule { }

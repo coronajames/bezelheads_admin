@@ -1,0 +1,58 @@
+<div class="breadcrumb">
+    <h1>Category</h1>
+    <ul>
+        <li><a href="">Category</a></li>
+        <li>gender</li>
+    </ul>
+</div>
+
+<div class="separator-breadcrumb border-top"></div>
+
+<div class="row mb-3">
+    <div class="col-md-12 mb-3">
+        <button class="btn btn-primary float-right">Add New Gender</button>
+    </div>
+    <div class="col-md-12">
+        <div class="card o-hidden">
+            <ngx-datatable *ngIf="genders?.length" style="box-shadow: none" class="material fullscreen" [style.height]="60*genders.length+60+'px'" [columnMode]="'force'"
+                [headerHeight]="50" [footerHeight]="0" [rowHeight]="60" [scrollbarV]="true" [scrollbarH]="true" [rows]="genders">
+                <ngx-datatable-column name="gender" [maxWidth]="100">
+                    <ng-template ngx-datatable-header-template>
+                        Number
+                    </ng-template>
+                    <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                        {{row.gender}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column [width]="120">
+                    <ng-template ngx-datatable-header-template>
+                        Actions
+                    </ng-template>
+                    <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                        <button class="btn btn-wide btn-outline-secondary mr-3" [routerLink]="['/invoice/edit', row.id]">View</button>
+                        <button class="btn btn-outline-danger" (click)="deleteInvoice(row.id, deleteConfirmModal)">
+                            Delete
+                        </button>
+                    </ng-template>
+                </ngx-datatable-column>
+            </ngx-datatable>
+        </div>
+    </div>
+</div>
+
+<ng-template #deleteConfirmModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-title">Invoice deletion</h4>
+        <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p><strong>Are you sure?</strong></p>
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary btn-rounded" (click)="modal.dismiss('cancel')">Cancel</button>
+        <button type="button" ngbAutofocus class="btn btn-wide btn-danger btn-rounded" (click)="modal.close('Ok')">Ok</button>
+    </div>
+</ng-template>

@@ -1,0 +1,151 @@
+<div class="breadcrumb">
+    <h1>Products</h1>
+    <ul>
+        <li><a href="">Products</a></li>
+        <li>add</li>
+    </ul>
+</div>
+
+<div class="separator-breadcrumb border-top"></div>
+
+<div class="row">
+    
+
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="card-title mb-3">New Products</div>
+                <form [formGroup]="formBasic" (ngSubmit)="submit()">
+                    <div class="row">
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="firstName">Title</label>
+                            <input type="text" class="form-control form-control-rounded" id="firstName" placeholder="Enter your first name">
+                        </div>
+
+                        <div class="col-md-3 form-group mb-3">
+                            <label for="firstName">Country</label>
+                            <select class="form-control form-control-rounded" >
+                                <option >USA</option>
+                                <option >RUS</option>
+                                <option >CHA</option>
+                                <option >UK</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 form-group mb-3">
+                            <label for="firstName">Price</label>
+                            <input type="text" class="form-control form-control-rounded" id="firstName" placeholder="Enter your first name">
+                        </div>
+
+                        <div class="col-md-3 form-group mb-3">
+                            <label for="firstName">Gender</label>
+                            <select class="form-control form-control-rounded" >
+                                <option >Men's</option>
+                                <option >Unisex</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3 form-group mb-3">
+                            <label for="firstName">Brand</label>
+                            <select class="form-control form-control-rounded" >
+                                <option >Rolex</option>
+                                <option >Cartier</option>
+                                <option >Chopard</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 form-group mb-3">
+                            <label for="firstName">Case Size</label>
+                            <select class="form-control form-control-rounded" >
+                                <option >38mm</option>
+                                <option >42mm</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 form-group mb-3">
+                            <label for="firstName">Case Material</label>
+                            <select class="form-control form-control-rounded" >
+                                <option >Material 1</option>
+                                <option >Material 2</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 form-group mb-3">
+                            <label for="firstName">Movement</label>
+                            <select class="form-control form-control-rounded" >
+                                <option >Automatic</option>
+                                <option >Manual</option>
+                                <option >Quartz</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 form-group mb-3">
+                            <label for="firstName">Condition</label>
+                            <select class="form-control form-control-rounded" >
+                                <option >New</option>
+                                <option >Second Hand</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 form-group mb-3">
+                            <label for="firstName">Certificate</label>
+                            <select class="form-control form-control-rounded" >
+                                <option >Yes</option>
+                                <option >No</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 form-group mb-3">
+                            <label for="firstName">Box</label>
+                            <select class="form-control form-control-rounded" >
+                                <option >Yes</option>
+                                <option >No</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-md-offset-6 form-group mb-3">
+                            <label for="picture">Picture</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="photo" aria-describedby="photo" (change) = "onFileSelected($event)">
+                                    <label class="custom-file-label" for="photo">{{chooseFileName}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 form-group mb-3">
+                            <br>
+                            <button type="button" class="btn btn-primary m-1"><i class="i-Add"></i> Add</button>
+                        </div>
+                        <div class="col-md-12">
+                            
+                            <ngx-datatable *ngIf="photos?.length" style="box-shadow: none" class="material fullscreen" [style.height]="70*photos.length+70+'px'" [columnMode]="'force'"
+                            [headerHeight]="60" [footerHeight]="0" [rowHeight]="60" [scrollbarV]="true" [scrollbarH]="true" [rows]="photos">
+                            <ngx-datatable-column name="photo" [maxWidth]="100">
+                                <ng-template ngx-datatable-header-template>
+                                    Photo
+                                </ng-template>
+                                <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                                    <img height="50px" width="50px" style="border-radius: 4px" [src]="value" alt="">
+                                </ng-template>
+                            </ngx-datatable-column>
+                            
+                            <ngx-datatable-column [width]="120">
+                                <ng-template ngx-datatable-header-template>
+                                    Actions
+                                </ng-template>
+                                <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                                    <button class="btn btn-outline-danger" (click)="deleteInvoice(row.id, deleteConfirmModal)">
+                                        Delete
+                                    </button>
+                                </ng-template>
+                            </ngx-datatable-column>
+                            </ngx-datatable>
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <btn-loading btnClass="btn-primary btn-rounded" [loading]="loading">Submit</btn-loading>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+   
+
+</div>
